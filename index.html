@@ -3,141 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to Sketch a User Interface</title>
+    <title>How to Sketch a User Interface with Requirements Specification in Mind</title>
     <style>
+        /* Basic layout and centering */
         body {
-            display: flex;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f9;
         }
-        #toc {
-            width: 220px;
+        .container {
+            max-width: 900px;
+            margin: 20px;
             padding: 20px;
-            position: sticky;
-            top: 0;
-            background-color: #f4f4f4;
-            height: 100vh;
-            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        #content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Table of contents styling */
+        .toc {
+            float: left;
+            width: 20%;
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            font-size: 0.9em;
+            padding: 10px;
+            background-color: #e3e3e3;
+            border-radius: 5px;
         }
-        h2, h3 {
+        .toc h3 {
+            margin-top: 0;
+        }
+        .toc a {
+            text-decoration: none;
             color: #333;
+            display: block;
+            margin: 5px 0;
         }
-        .section-title {
+        /* Content section styling */
+        .content {
+            margin-left: 25%;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2, .section h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        .section h2 {
+            font-size: 1.5em;
+        }
+        .section h3 {
+            font-size: 1.2em;
             font-weight: bold;
-            margin-top: 20px;
         }
         iframe {
             width: 100%;
+            max-width: 560px;
             height: 315px;
-            border: 0;
-        }
-        ol {
-            padding-left: 20px;
-        }
-        .toc-link {
-            text-decoration: none;
-            color: #000;
-            display: block;
-            margin: 8px 0;
-            font-size: 14px;
-        }
-        .toc-link:hover {
-            color: #007bff;
-        }
-        p {
-            margin-bottom: 1em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <aside id="toc">
-        <h2>Table of Contents</h2>
-        <a href="#why-sketching" class="toc-link">Why is sketching a UI a good idea?</a>
-        <a href="#choosing-tool" class="toc-link">How to Choose a Tool for Sketching UI</a>
-        <a href="#prerequisites" class="toc-link">Prerequisites</a>
-        <a href="#mockflow-navigation" class="toc-link">Sketching UI Using MockFlow</a>
-        <a href="#figma-navigation" class="toc-link">Sketching UI Using Figma</a>
-    </aside>
-    <main id="content">
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <a href="#why-sketching">Why Sketching a UI is a Good Idea</a>
+        <a href="#choose-tool">How to Choose a Tool for Sketching UI</a>
+        <a href="#prerequisites">Prerequisites</a>
+        <a href="#mockflow">Sketching UI Using MockFlow</a>
+        <a href="#mockflow-nav">- Sketch Navigation Menu</a>
+        <a href="#mockflow-trip-history">- Sketch Customer View Over Trip History</a>
+        <a href="#figma">Sketching UI Using Figma</a>
+        <a href="#figma-nav">- Sketch Navigation Menu</a>
+        <a href="#figma-trip-history">- Sketch Customer View Over Trip History</a>
+    </div>
+
+    <div class="container content">
         <h1>How to Sketch a User Interface with the Requirements Specification in Mind</h1>
+        <section>
+            <h2>Demo</h2>
+            <ul>
+                <li><a href="https://wireframepro.mockflow.com/view/Mx7LilUOVh#/page/D71665c36ebb41fa5d7d56bbc98e26a44/mode/view" target="_blank">MockFlow</a></li>
+                <li><a href="https://www.figma.com/proto/TDfDmsK5lOOQZAtEglHuZ6/vteam-library?page-id=3366%3A123&node-id=3439-172&node-type=canvas&viewport=4481%2C11580%2C0.5&t=Ha9mjR3XS68HVIS5-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=3439%3A172" target="_blank">Figma</a></li>
+            </ul>
+        </section>
+        <p><strong>Before you start reading:</strong> This document is not a step-by-step guide. Instead, I'm demonstrating how I would sketch a user interface design based on the requirements I have. I hope this inspires you to start sketching.</p>
+        <div class="section" id="why-sketching">
+            <h2>Why is Sketching a User Interface a Good Idea?</h2>
+            <p>
+                Sketching the user interface (UI) before development can be very helpful, especially for complex applications like an electric scooter rental app. It allows your team and stakeholders to quickly understand how the interface might look and function, without needing long explanations.
+            </p>
+        </div>
 
-        <p><strong>Before you start reading:</strong> This document is not a step-by-step guide but a kickstarter to help you get going. Thank you!</p>
+        <div class="section" id="choose-tool">
+            <h2>How to Choose a Tool for Sketching UI</h2>
+            <p>
+                There are many tools available for sketching user interfaces, and the right choice depends on a few factors:
+            </p>
+            <ul>
+                <li>Your experience with visualizing ideas and arranging elements like shapes and text</li>
+                <li>Your understanding of graphic design concepts</li>
+                <li>Your timeframe for completing the sketch</li>
+            </ul>
+            <p>
+            <p>I will use <a target="_blank" href="https://www.figma.com">Figma</a> and <a target="_blank" href="https://mockflow.com/">MockFlow</a> as examples in this guide.</p>
+        </div>
 
-        <h2 id="why-sketching">Why is sketching a user interface a good idea?</h2>
-        <p>Sketching the user interface (UI) before development can be very helpful, especially for complex applications like an electric scooter rental app. It allows your team and stakeholders to quickly understand the potential look and function of the interface.</p>
-        
-        <h2 id="choosing-tool">How to Choose a Tool for Sketching UI</h2>
-        <p>There are many tools available for sketching user interfaces. The right choice depends on your experience with visualizing ideas and arranging elements. We will use <a href="https://www.figma.com">Figma</a> and <a href="https://mockflow.com/">MockFlow</a> as examples in this guide.</p>
-        
-        <h2 id="prerequisites">Prerequisites</h2>
-        <p>Before you start, create an account on Figma and MockFlow. This guide uses a requirement specification translated from the <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit?tab=t.0#heading=h.l3doj0ee6ekb">Kravspecification Svenska Elsparkcyklar AB</a>.</p>
-        
-        <h2 id="mockflow-navigation">Sketching UI Using MockFlow</h2>
-        
-        <h3 class="section-title">Sketch Navigation Menu</h3>
-        <ol>
-            <li><strong>Add an iOS Frame:</strong>
-                <ul>
-                    <li>Select <code>Elements > Frames > iOS Frame Light</code>.</li>
-                    <li>Set its dimensions to 390 x 844.</li>
-                </ul>
-                <iframe src="https://www.youtube.com/embed/gupa05ZLrS4" title="YouTube video player"></iframe>
-            </li>
-            <li><strong>Add Text Labels:</strong>
-                <ul>
-                    <li>Drag <code>Elements > Text > Label</code> onto the canvas and modify it.</li>
-                    <li>Add icons if desired.</li>
-                </ul>
-                <iframe src="https://www.youtube.com/embed/3yAQnlbdGvE" title="YouTube video player"></iframe>
-            </li>
-            <li><strong>Align and Adjust Labels:</strong> Arrange the labels with icons for a functional navigation layout.
-                <iframe src="https://www.youtube.com/embed/zjjFxtLLg08" title="YouTube video player"></iframe>
-            </li>
-        </ol>
+        <div class="section" id="prerequisites">
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>I assume that you have created an account on the following services: Figma and MockFlow.</li>
+                <li>I will use one requirement specification translated to English from 
+                    <a href="https://docs.google.com/document/d/1zWksQNmkXJgM7Q66k3-mgcxrexO6eF9xqd0Z632BwlU/edit?tab=t.0#heading=h.l3doj0ee6ekb" target="_blank">Kravspecification Svenska Elsparkcyklar AB (2024)</a>. 
+                    The requirement is listed below. I have broken it down to fit the goal of sketching a UI.
+                </li>
+            </ul>
+        </section>
 
-        <h3 class="section-title">Sketch Customer View Over Trip History</h3>
-        <ol>
-            <li><strong>Add Text and Currency Labels:</strong> Display trip date and cost.
-                <iframe src="https://www.youtube.com/embed/xTw3Y6FtQx4" title="YouTube video player"></iframe>
-            </li>
-            <li><strong>Enhance Design:</strong> Add a horizontal line for visual separation.
-                <iframe src="https://www.youtube.com/embed/SpxwqYgCj-I" title="YouTube video player"></iframe>
-            </li>
-        </ol>
+        <section>
+            <h3>Customer Web Interface</h3>
+            <ul>
+                <li>The customer can view a history of their trips, with all saved details, including the cost.
+                    <ul>
+                        <li>Display a list of trips with relevant data and the total cost.
+                            <ul>
+                                <li>Date field: Shows the trip’s date, month, and year (22 July 2024).</li>
+                                <li>Total cost: Displays the amount and currency (SEK 299.00).</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h3>Interface Specifications:</h3>
+            <ul>
+                <li>The UI will be sketched for mobile phones with dimensions 390 x 844.</li>
+                <li>A common navigation bar will be added across all pages.</li>
+            </ul>
+        </section>
+        </div>
 
-        <h2 id="figma-navigation">Sketching UI Using Figma</h2>
+        <div class="section" id="mockflow">
+            <h2>Sketching UI Using MockFlow</h2>
 
-        <h3 class="section-title">Sketch Navigation Menu</h3>
-        <ol>
-            <li><strong>Set Up Frame:</strong>
-                <ul>
-                    <li>Use <code>Frame > Phone > iPhone 13 & 14</code> dimensions 390 x 844.</li>
-                </ul>
-                <iframe src="https://www.youtube.com/embed/lfZYNteo0Cw" title="YouTube video player"></iframe>
-            </li>
-            <li><strong>Add Text:</strong> Add buttons with labels like “Map,” “Scan,” and “Profile.”
-                <iframe src="https://www.youtube.com/embed/TRC7sw_a7W0" title="YouTube video player"></iframe>
-            </li>
-            <li><strong>Align Icons and Text:</strong> Arrange icons beside text, and add Auto Layout for consistent spacing.
-                <iframe src="https://www.youtube.com/embed/tNMMZt5Kj2qIFjgP" title="YouTube video player"></iframe>
-            </li>
-        </ol>
+            <div class="section" id="mockflow-nav">
+                <h3>Sketch Navigation Menu</h3>
+                <p><strong>1. Add an iOS Frame:</strong></p>
+                <ol>
+                        <ul>
+                            <li>Select <code>Elements > Frames > iOS Frame Light</code> from the left menu.</li>
+                            <li>Drag and drop the iOS Frame onto the canvas and set its dimensions to 390 x 844.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/gupa05ZLrS4?si=okBM3mcEvMlXX_Ig" title="YouTube video player"></iframe>
+                
+                <p><strong>2. Add Text Labels:</strong></p>
+                <ol start="2">
+                        <ul>
+                            <li>From the left menu, select <code>Elements > Text > Label</code> and drag it onto the canvas.</li>
+                            <li>Double-click the label to change its size, text content, text alignment and add an icon.</li>
+                            <li>To add an icon to the label, select <code>Icons > Select icon</code> from the left menu and choose an icon.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/3yAQnlbdGvE?si=ZxJPnZwVWXVY4xWu" title="YouTube video player"></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/l2QfkiqYqic?si=fVzUbVWesqu0P8xy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-        <h3 class="section-title">Sketch Customer View Over Trip History</h3>
-        <ol>
-            <li><strong>Add Text and Icons:</strong> Include trip details and action icons.
-            </li>
-            <li><strong>Adjust Sizes and Layout:</strong> Use Auto Layout for structured spacing between trip items.
-            </li>
-            <li><strong>Refine the Design:</strong> Add borders and spacing for a polished look.
-            </li>
-        </ol>
-    </main>
+                <p><strong>3. Add more Text Labels:</strong></p>
+                <ol start="3">
+                        <ul>
+                            <li>Repeat the Add and Edit label actions to add more ‘buttons’. I added labels with the text ‘Skanna’ and ‘Profile’. Do not forget icons; I chose ‘keyboard’ and ‘user’ icons.</li>
+                            <li>Select all the labels by holding Shift while clicking each one or dragging a selection box.</li>
+                            <li>Use options <code>Align > Align Middle and Distribute > Distribute Horizontal Space</code> to align them properly.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/zjjFxtLLg08?si=wjwunlwI9vqelqak" title="YouTube video player"></iframe>
+
+                <p><strong>4. Place Navigation Bar:</strong></p>
+                <ol start="4">
+                        <ul>
+                            <li>Select and place the navigation bar inside the iOS Frame.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/1lwVLVHnp0I?si=1RADE3ZdGDnROvOs" title="YouTube video player"></iframe>
+            </div>
+
+            <div class="section" id="mockflow-trip-history">
+                <h3>Sketch Customer View Over Trip History</h3>
+                <p><strong>1. Add Text and Currency Labels:</strong></p>
+                <ol>
+                        <ul>
+                            <li>Use <code>Text > Label</code> to display the date, month, year, and total cost (e.g., "12 Mars 14:08 SEK 123.00").</li>
+                            <li>Select an icon for the amount label to indicate user actions.</li>
+                            <li>Arrange the text and icons inside the iOS Frame and align them properly.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/xTw3Y6FtQx4?si=EF33rgRGpBfClCEY" title="YouTube video player"></iframe>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SpxwqYgCj-I?si=tovQhITHZizZ7PL1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+                <p><strong>2. Enhance Design:</strong></p>
+                <ol start="2">
+                        <ul>
+                            <li>Add a horizontal line <code>Elements > Shapes > Horizontal Line</code> beneath each trip item for better visual appeal.</li>
+                        </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/UcndgbM-dgo?si=-UtjFZbpkC9fN91f" title="YouTube video player"></iframe>
+            </div>
+        </div>
+
+        <div class="section" id="figma">
+            <h2>Sketching UI Using Figma</h2>
+
+            <div class="section" id="figma-nav">
+                <h3>Sketch Navigation Menu</h3>
+                <p><strong>1. Set Up Frame:</strong></p>
+                <ol start>
+                    <ul>
+                        <li>Press <code>F</code> to open the Frame options.</li>
+                        <li>Or Select <code>Frame > Phone > iPhone 13 & 14</code> with dimensions 390 x 844.</code></li>
+                    </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/lfZYNteo0Cw?si=HlDBKYNfB0sKqFjt" title="YouTube video player"></iframe>
+
+                <p><strong>2. Add Text:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Select the T (Text) icon or press T, then click on the canvas to add text (Karta, Skanna, Profil).</li>
+                    </ul>
+                </ol>
+                <iframe src="https://www.youtube.com/embed/TRC7sw_a7W0?si=tNMMZt5Kj2qIFjgP" title="YouTube video player"></iframe>
+
+                <p><strong>3. Adjust Text Properties:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Select all text and set the size to 16.</li>
+                        <li>Align the text using <code>Text > Typography > Align Center and Align Middle</code>.</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/JnN9p1ZElOI?si=fwkHz_Sq7QKaqJ0o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>4. Add Icons:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Press <code>Ctrl + K</code> to open the Actions menu and search for "Icons8".</li>
+                        <li>Search and select icons for map, scan, and profile.</li>
+                        <li>Resize icons to 24x24 by constraining proportions (click the chain icon under Layout > Dimensions).</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/O2Rg6xqdLwE?si=P88Chvb90sHg_s1x" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>5. Align Icons and Text:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Arrange icons next to their respective text labels.</li>
+                        <li>Use the "Auto Layout" option to define spacing between text and icons.</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wsAEXuMZIBg?si=CZmeCoe9wJqq2fRj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>6. Create Navigation Bar:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Group the individual buttons into a navigation bar using Auto Layout.</li>
+                        <li>Define spacing, padding, and background color for the navigation bar.</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/9QDvhbUYSNc?si=_JGBmwa1JAWESHtl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <div class="section" id="figma-trip-history">
+                <h3>Sketch Customer View Over Trip History</h3>
+                <p><strong>1. Add Text and Icons:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Use Text to display the trip’s date, month, year, currency (e.g., SEK), and amount.</li>
+                        <li>Add an appropriate icon to indicate user action.</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vZUjUVDljyg?si=lZQfREYL-mVx79n8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>2. Adjust Sizes and Layout:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Set text size to 20 and icon size to 24x24.</li>
+                        <li>Use fixed widths for text fields depending on their content.</li>
+                        <li>Apply Auto Layout to define gaps and padding (top/bottom: 16, left/right: 24).</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/QTgvaRxp5NY?si=MVpCMWeU8uNuUzaT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p><strong>3. Refine the Design:</strong></p>
+                <ol>
+                    <ul>
+                        <li>Add a border (stroke) to improve aesthetics.</li>
+                        <li>Adjust padding to 16 (left/right) and spacing between frames to 28 for a balanced layout.</li>
+                    </ul>
+                </ol>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/8q7zk_TAhK0?si=5RzgllCi_NRtZrb4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
